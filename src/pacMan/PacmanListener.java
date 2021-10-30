@@ -27,37 +27,28 @@ class PacmanListener extends KeyAdapter{
 	public void keyPressed(KeyEvent e) {
 
 
-		int keye = e.getKeyCode();
+		int key = e.getKeyCode();
 
 
-		if (keye == KeyEvent.VK_UP) {
+		if (key == KeyEvent.VK_UP) {
 			req_dx = -1;
 			req_dy = 0;
-			this.key = 38;
-		} else if (keye == KeyEvent.VK_DOWN) {
+		} else if (key == KeyEvent.VK_DOWN) {
 			req_dx = 1;
 			req_dy = 0;
-			this.key = 40;
-	
-		} else if (keye == KeyEvent.VK_LEFT) {
+		} else if (key == KeyEvent.VK_LEFT) {
 			req_dx = 0;
 			req_dy = -1;
-			this.key = 37;
-	
-		} else if (keye == KeyEvent.VK_RIGHT) {
+		} else if (key == KeyEvent.VK_RIGHT) {
 			req_dx = 0;
 			req_dy = 1;
-			this.key = 39;
-			
+		} else {
+			req_dx = 0;
+			req_dy = 0;
 		}
-		
-		if(keye == this.key) {
-					
+
+
 		fenetre.deplacementPacman(req_dx,req_dy);
-		fenetre.repaint();
-		//Thread.currentThread.sleep(500);
-		}
-		
 
 	}
 
@@ -69,7 +60,7 @@ class PacmanListener extends KeyAdapter{
 	public int getReq_dy() {
 		return req_dy;
 	}
-	
+
 
 }
 

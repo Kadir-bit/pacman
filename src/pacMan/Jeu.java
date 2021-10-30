@@ -12,15 +12,15 @@ public class Jeu {
 
 	private int[][] map = {
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-			{0,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,0},
+			{0,3,1,1,1,0,1,1,1,1,1,1,0,1,1,1,2,0},
 			{0,1,0,0,1,0,1,0,0,0,0,1,0,1,0,0,1,0},
 			{0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0},
-			{0,1,0,1,0,0,1,0,1,1,0,1,0,0,1,0,1,0},
-			{1,1,5,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1},
+			{0,1,0,1,0,0,1,0,10,10,0,1,0,0,1,0,1,0},
+			{1,1,5,1,1,1,1,0,10,10,0,1,1,1,1,1,1,1},
 			{0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,1,0},
 			{0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0},
 			{0,1,0,0,1,0,1,0,0,0,0,1,0,1,0,0,1,0},
-			{0,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1,1,0},
+			{0,2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,4,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 	};
 	
@@ -78,9 +78,18 @@ public class Jeu {
 					g.setColor(new Color(51,107,255));
 					g.fillRect(y*CaseSize, x*CaseSize, CaseSize, CaseSize);
 				} else if (map[x][y] == 1){
-					g.setColor(new Color(255,255,255));
+					g.setColor(new Color(255, 255, 255));
 					g.fillOval(y*CaseSize + 28 , x*CaseSize + 28, 6, 6);
-				} else if (map[x][y] == 5){
+				}else if (map[x][y] == 2){
+					g.setColor(new Color(106, 1, 253, 255));
+					g.fillOval(y*CaseSize + 23 , x*CaseSize + 23, 15, 15);
+				}else if (map[x][y] == 3){
+					g.setColor(new Color(255, 129, 0));
+					g.fillOval(y*CaseSize + 23 , x*CaseSize + 23, 15, 15);
+				}else if (map[x][y] == 4){
+					g.setColor(new Color(63, 255, 0));
+					g.fillOval(y*CaseSize + 23 , x*CaseSize + 23, 15, 15);
+				}else if (map[x][y] == 5){
 					g.setColor(new Color(255,255,0));
 					g.fillOval(y*CaseSize + 10 , x*CaseSize + 10, 35, 35);
 				} else if (map[x][y] == 10) {
