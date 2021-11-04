@@ -15,19 +15,19 @@ public class Jeu {
 			{0,3,1,1,1,0,1,1,1,1,1,1,0,1,1,1,2,0},
 			{0,1,0,0,1,0,1,0,0,0,0,1,0,1,0,0,1,0},
 			{0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0},
-			{0,1,0,1,0,0,1,0,10,10,0,1,0,0,1,0,1,0},
-			{1,1,5,1,1,1,1,0,10,10,0,1,1,1,1,1,1,1},
+			{0,1,0,1,0,0,1,0,7,7,0,1,0,0,1,0,1,0},
+			{1,1,5,1,1,1,1,0,7,7,0,1,1,1,1,1,1,1},
 			{0,1,0,1,0,0,1,0,0,0,0,1,0,0,1,0,1,0},
 			{0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,0,1,0},
 			{0,1,0,0,1,0,1,0,0,0,0,1,0,1,0,0,1,0},
 			{0,2,1,1,1,0,1,1,1,1,1,1,0,1,1,1,4,0},
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 	};
-	
+
 	public int[][] getMap() {
 		return map;
 	}
-	
+
 	public void setMapCase(int[][] map,int x,int y,int value) {
 		this.map[x][y] = value;
 	}
@@ -38,17 +38,17 @@ public class Jeu {
 		return inGame;
 	}
 
-	
+	public void launchGame() {
+		this.inGame = true;
+	}
 
-	public void setInGame(Boolean inGame) {
-		this.inGame = inGame;
+	public void endGame() {
+		this.inGame = false;
 	}
 
 	public Jeu (Joueur player) {
 		super();
-		this.inGame =false;
-		
-
+		inGame = false;
 	}
 
 	public int getCaseNumWidth() {
@@ -69,7 +69,7 @@ public class Jeu {
 		for(int x = 0 ; x < CaseNumHeight ; x++) {
 			for(int y = 0 ; y < CaseNumWidth ; y++) {
 
-				
+
 
 				carte[x][y] = new Case(x,y);
 
@@ -91,15 +91,21 @@ public class Jeu {
 					g.fillOval(y*CaseSize + 23 , x*CaseSize + 23, 15, 15);
 				}else if (map[x][y] == 5){
 					g.setColor(new Color(255,255,0));
-					g.fillOval(y*CaseSize + 10 , x*CaseSize + 10, 35, 35);
+					g.fillOval(y*CaseSize + 10 , x*CaseSize + 10, 30, 30);
+				} else if (map[x][y] == 7) {
+					g.setColor(new Color(232, 15, 15));
+					g.fillRect(y*CaseSize+15, x*CaseSize+15, 30, 30);
 				} else if (map[x][y] == 10) {
 					g.setColor(new Color(0,0,0));
-					g.fillRect(y*CaseSize, x*CaseSize, CaseSize, CaseSize);				}
+					g.fillRect(y*CaseSize, x*CaseSize, CaseSize, CaseSize);
+				}
 			}
 		}
 		return carte;
 	}
-	
-	
+
+
+
+
 
 }

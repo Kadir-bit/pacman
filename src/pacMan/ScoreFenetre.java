@@ -28,7 +28,9 @@ public class ScoreFenetre extends JPanel {
         super.paint(g);
         g.drawString("score : "+player.getScore(),20,20);
         g.drawString("vie : "+player.getVies(),100,20);
-
+        if(game.getInGame() == false && player.getVies() > 0) {
+            g.drawString("appuyé sur espace pour commencé",400,20);
+        }
     }
 
 }

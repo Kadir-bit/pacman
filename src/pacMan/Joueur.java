@@ -3,6 +3,7 @@ package pacMan;
 public class Joueur {
 	private int vies;
 	private int score;
+	private int stock = 0;
 	
 	public Joueur() {
 		super();
@@ -10,10 +11,21 @@ public class Joueur {
 		this.score = 0;
 	}
 
+
+
 	public void vieBonus() {
-		if (this.score  > 5000) {
-			this.vies +=1;
+		if (this.score-stock  >= 5000) {
+			setVies(getVies()+1);
+			setStock(getStock()+5000);
 		}
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 
 	public int getVies() {
